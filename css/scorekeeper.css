@@ -11,6 +11,19 @@ body {
 	text-shadow: 0.08em 0.08em #AAAAAA;
 }
 
+a:link, a:visited {
+	color: #444444;
+}
+
+a:hover, a:active {
+	color: #888888;
+}
+
+footer {
+	font-size: .8em;
+	color: #444444;
+}
+
 button, input {
 	margin: 3px;
 }
