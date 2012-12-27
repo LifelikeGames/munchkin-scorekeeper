@@ -5,6 +5,5 @@ A scorekeeping tool for the card game "Munchkin" by Steve Jackson.
 
 Made by Ben Centra (bencentra@csh.rit.edu).
 
-=== To-Do's ===
+### To-Do's ###
 * Get some sweet styles
-* Maybe comment the code some more
