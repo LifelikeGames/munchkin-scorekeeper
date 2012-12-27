@@ -1,0 +1,48 @@
+* {font-family: sans-serif;}
+
+body {
+	background: #CCCCCC;
+	text-align: center;
+	width: 98%;
+	min-width: 420px;
+}
+
+#title {
+	text-shadow: 0.08em 0.08em #AAAAAA;
+}
+
+button, input {
+	margin: 3px;
+}
+
+/* Large desktop */
+@media (min-width: 980px), (min-device-width: 980px) { 
+	button, input {
+		padding: 10px;
+		font-size: 25px;
+	}
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px), (min-device-width: 768px) and (max-device-width: 979px) { 
+	button, input {
+		padding: 8px;
+		font-size: 20px;
+	}
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px), (max-device-width: 767px) { 
+	button, input {
+		padding: 6px;
+		font-size: 16px;
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px), (max-device-width: 480px) { 
+	button, input {
+		padding: 5px;
+		font-size: 15px;
+	}
+}

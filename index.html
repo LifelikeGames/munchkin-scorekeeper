@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Munchkin Scorekeeper</title>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/scorekeeper.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/scorekeeper.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<header>
+		<h1 id="title">Munchkin Scorekeeper</h1>
+	</header>
+	<section id="main">
+		<div id="scorekeeper"></div>
+		<div id="buttons">
+		<p>
+			<button id="add_player" onclick="addPlayerToList(-1);">Add Player</button>
+			<button id="new_game" onclick="newGame();">New Game</button>
+			<button id="reset_game" onclick="resetGame();">Clear All</button>
+		</p>
+		<p>Max Players: 
+			<input type="text" id="max_players" size="2" onchange="changeMaxPlayers(this.value);"/>
+			<button id="max_players_plus" onclick="changeMaxPlayers(data.maxPlayers + 1);">&nbsp;+&nbsp;</button>
+			<button id="max_players_minus" onclick="changeMaxPlayers(data.maxPlayers - 1);">&nbsp;-&nbsp;</button>
+		</p>
+		</div>
+	</section>
+	<footer>
+		<p id="message"></p>
+	</footer>
+</div>	
+<script type="text/javascript">
+	//Checks for compatability with localStorage and loads previous data
+	$(document).ready(function(e) {
+		if (typeof(Storage) === "undefined") {
+			$("header").prepend("<p class='warning'>WARNING: This requires HTML5 localStorage to run properly. Please upgrade your browser and try again.</p>");
+		}
+		else {
+			console.log("Loading Game...");
+			if (localStorage.getItem("munchkinScorekeeper")) {
+				data = JSON.parse(localStorage.getItem("munchkinScorekeeper"));
+			}
+			else {
+				initData();
+			}
+		}
+		for (var i = 0; i < data.players.length; i++) {
+			var id = data.players[i].id;
+			var name = data.players[i].name;
+			var level = data.players[i].level;
+			addPlayerToList(id);
+			$("#name_"+id).val(name);
+			$("#level_"+id).val(level);
+		}
+		$("#max_players").val(data.maxPlayers);
+	});
+</script>
+</body>
+</html>
